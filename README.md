@@ -1,48 +1,30 @@
 # Dommo Sync
 
-Agente que sincroniza automaticamente as mãos de poker capturadas pelo
-**Asian Hand Converter** com o servidor de estudo do time.
+Canal público oficial de download do agente de captura de mãos da **DOMMO
+Poker Team**.
 
-Roda em segundo plano no PC do jogador, observa a pasta de hand histories e
-envia as mãos novas conforme são geradas. Não modifica nada no seu jogo — apenas
-lê os arquivos que o Asian já grava.
+O projeto, o backend e o código-fonte são privados. Este repositório público
+contém somente esta documentação e os instaladores compilados anexados em
+[Releases](../../releases).
 
-## Instalação
+## Instalar
 
-1. Baixe o `dommo-sync.exe` na aba [Releases](../../releases).
-2. Crie um arquivo `run.bat` na mesma pasta com o conteúdo abaixo
-   (peça ao admin do time o `SERVER_URL` e o seu `AUTH_TOKEN`):
+1. Entre na [área de captura do site Dommo](https://system.dommopokerteam.com/player/captura).
+2. Crie uma credencial para o computador e copie o valor exibido.
+3. Baixe a versão estável mais recente:
+   [DommoSyncSetup.exe](../../releases/latest/download/DommoSyncSetup.exe).
+4. Abra o instalador e cole a credencial quando solicitado.
 
-```bat
-@echo off
-set WATCH_DIR=C:\Program Files (x86)\Ace Poker Solutions\Asian Hand Converter\HM3HandHistories\sprp_hh
-set SERVER_URL=https://SEU-SERVIDOR
-set AUTH_TOKEN=SEU-TOKEN
-set STATE_FILE=%~dp0offsets.json
-dommo-sync.exe
-```
+O assistente detecta a pasta de hand histories do Asian Hand Converter, valida
+a credencial e configura o Dommo Sync para iniciar com o Windows. Depois disso,
+o jogador pode usar múltiplas contas e mesas normalmente; os arquivos novos são
+sincronizados em segundo plano.
 
-3. Dê duplo clique em `run.bat` (ou coloque no atalho de inicialização do Windows).
+## Segurança
 
-O agente faz uma varredura inicial dos arquivos existentes e depois envia cada
-mão nova automaticamente.
+- nenhuma credencial é embutida no instalador público;
+- o valor é protegido pelo DPAPI para o usuário atual do Windows;
+- uma credencial pode ser revogada a qualquer momento no site;
+- cada release informa o SHA-256 do instalador para conferência.
 
-## Configuração (variáveis de ambiente)
-
-| Variável | Descrição |
-|---|---|
-| `WATCH_DIR` | Pasta `sprp_hh` do Asian Hand Converter |
-| `SERVER_URL` | URL do servidor de ingestão do time |
-| `AUTH_TOKEN` | Token individual do jogador |
-| `STATE_FILE` | (opcional) onde salvar o progresso; padrão `watcher-offsets.json` |
-
-## Verificação de integridade
-
-```
-SHA-256: 016f4aed626274af21b2914b50a1e37be9e74e2a4ce6e42ea02165a12b84b37a
-```
-
-Confira no PowerShell:
-```powershell
-Get-FileHash dommo-sync.exe -Algorithm SHA256
-```
+Compatível com Windows 10/11 x64.
