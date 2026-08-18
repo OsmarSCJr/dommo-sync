@@ -15,10 +15,11 @@ contém somente esta documentação e os instaladores compilados anexados em
    [DommoSyncSetup.exe](../../releases/latest/download/DommoSyncSetup.exe).
 4. Abra o instalador e cole a credencial quando solicitado.
 
-O assistente detecta a pasta de hand histories do Asian Hand Converter, valida
-a credencial e configura o Dommo Sync para iniciar com o Windows. Depois disso,
-o jogador pode usar múltiplas contas e mesas normalmente; os arquivos novos são
-sincronizados em segundo plano.
+O assistente valida a credencial e configura o Dommo Sync para iniciar com o
+Windows. A credencial válida libera o capturador próprio do Dommo; não é
+necessário instalar o Asian Hand Converter. O jogador pode usar múltiplas contas
+e mesas normalmente, com captura isolada por processo e sincronização em segundo
+plano.
 
 ## Segurança
 
