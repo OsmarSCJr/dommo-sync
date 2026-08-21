@@ -29,3 +29,14 @@ plano.
 - cada release informa o SHA-256 do instalador para conferência.
 
 Compatível com Windows 10/11 x64.
+
+## Atualizações
+
+A partir da versão 0.7.0, o próprio Dommo Sync avisa quando existe uma versão
+estável nova. O jogador pode baixar e iniciar a atualização pelo painel ou pelo
+ícone perto do relógio; o app confere o SHA-256 publicado no release antes de
+abrir o instalador.
+
+Quem ainda usa a versão 0.6.0 ou anterior precisa instalar a 0.7.0 manualmente
+uma última vez. Depois disso, os próximos avisos e downloads acontecem dentro do
+aplicativo.
